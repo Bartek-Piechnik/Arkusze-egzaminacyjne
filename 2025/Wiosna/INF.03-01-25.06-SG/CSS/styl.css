@@ -1,0 +1,54 @@
+* {
+    font-family: Garamond;
+    color: white;
+}
+header {
+    background-color: indigo;
+    text-align: center;
+    padding: 2px;
+}
+main {
+    display: flex;
+}
+#Sekcja_lewa, #Sekcja_prawa {
+    background-color: indigo;
+    height: 600px;
+}
+#Sekcja_srodkowa {
+    background-color: black;
+    height: 600px;
+    overflow: scroll;
+}
+@media (min-width: 800px) {
+  #Sekcja_lewa, #Sekcja_prawa {
+    width: 20%;
+  }
+  #Sekcja_srodkowa {
+    width: 60%;
+  }
+}
+#Sekcja_lewa, #Sekcja_prawa {
+    display: flex;
+    flex-direction: column;
+}
+footer {
+    background-color: indigo;
+    height: 150px;
+}
+#Punkty {
+    background-color: tomato;
+    border-radius: 50%;
+    padding: 5px;
+}
+li {
+    padding: 5px;
+}
+#Blok {
+    display: inline-block;
+    text-align: center;
+    padding: 3px;
+}
+input {
+    margin: 10px;
+    color: indigo;
+}

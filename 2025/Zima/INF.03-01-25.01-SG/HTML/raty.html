@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kursy komputerowe</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <header>
+        <img src="../Grafiki/baner.png" alt="kursy komputerowe">
+    </header>
+    <nav>
+        <a href="index.html">Strona główna</a>
+        <a href="raty.html">Koszt rat</a>
+        <a href="https://moje-szkolenia.pl/">Nasz partner</a>
+    </nav>
+    <main>
+        <h3>Oblicz miesięczną ratę</h3>
+        <label for="Kurs_React_js">
+            Kurs React.js <input type="checkbox" name="Kurs_React_js" id="Kurs_React_js" class="kontrolki">
+        </label><br>
+        <label for="Kurs_JavaScript">
+            Kurs JavaScript <input type="checkbox" name="Kurs_JavaScript" id="Kurs_JavaScript" class="kontrolki">
+        </label><br>
+        <label for="Liczba_rat">
+            Liczba rat: <input type="number" name="Liczba_rat" id="Liczba_rat" class="kontrolki">
+        </label><br>
+        <select name="Miasto" id="Miasto" class="kontrolki">
+            <option value="Warszawa">Warszawa</option>
+            <option value="Katowice">Katowice</option>
+            <option value="Gdańsk">Gdańsk</option>
+        </select><br>
+        <input type="submit" value="Oblicz" class="kontrolki" id="Oblicz">
+        <p id="Wynik"></p>
+    </main>
+    <footer>
+        <p>Autor strony: Bartek Piechnik 3Tpa</p>
+    </footer>
+    <script>
+        document.getElementById('Oblicz').addEventListener("click", function() {
+            var Kurs_React_js = document.getElementById('Kurs_React_js').checked;
+            var Kurs_JavaScript = document.getElementById('Kurs_JavaScript').checked;
+            var Liczba_rat = parseInt(document.getElementById('Liczba_rat').value);
+            var Miasto = document.getElementById('Miasto').value;
+            var Wynik = document.getElementById('Wynik');
+
+            var Kwota_calkowita = 0;
+
+            if (Kurs_React_js && Kurs_JavaScript)
+            {
+                Kwota_calkowita = 8000;
+            }
+            else if (Kurs_React_js)
+            {
+                Kwota_calkowita = 5000;
+            }
+            else if (Kurs_JavaScript)
+            {
+                Kwota_calkowita = 3000;
+            }
+            else
+            {
+                Kwota_calkowita = 0;
+            }
+
+            if (Liczba_rat > 0)
+            {
+                Koszt_jednej_raty = Kwota_calkowita / Liczba_rat;
+            }
+            
+            Wynik.innerHTML = "Kurs odbędzie się w " + Miasto + ". Koszt całkowity: " + Kwota_calkowita + " zł. Płacisz " + Liczba_rat + " rat po " + Koszt_jednej_raty + " zł";
+        });
+    </script>
+</body>
+</html>
