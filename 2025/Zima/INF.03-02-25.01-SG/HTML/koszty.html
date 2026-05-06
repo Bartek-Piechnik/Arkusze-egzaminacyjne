@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montaż paneli podłogowych</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <header>
+        <img src="../Grafiki/montaz_paneli.png" alt="firma usługowa">
+    </header>
+    <nav>
+        <a href="../HTML/index.html">Strona Główna</a>
+        <a href="../HTML/oferta.html">Oferta</a>
+        <a href="../HTML/koszty.html">Kalkulator kosztów</a>
+    </nav>
+    <main>
+        <h1>Kalkulator kosztów montażu</h1>
+
+        <label for="Szerokosc">Szerokość pomieszczenia [m]: </label>
+        <input type="number" name="Szerokosc" id="Szerokosc">
+        <label for="Dlugosc">Długość pomieszczenia [m]: </label>
+        <input type="number" name="Dlugosc" id="Dlugosc">
+
+        <p>Typ panelu</p>
+        <input type="radio" name="Typ_panelu" id="Panele_laminowane">
+        <label for="Panele_laminowane">Panele laminowane</label>
+        <br>
+        <input type="radio" name="Typ_panelu" id="Panele_winylowe">
+        <label for="Panele_winylowe">Panele winylowe</label>
+        <br>
+        <input type="radio" name="Typ_panelu" id="Deska_podłogowa">
+        <label for="Deska_podłogowa">Deska podłogowa</label>
+        <br>
+        <input type="button" value="Oblicz" id="Przycisk_oblicz">
+        <br>
+        <p id="Wynik"></p>
+    </main>
+    <footer>
+        <h5>Autor strony: Bartek Piechnik 3Tpa</h5>
+    </footer>
+    <script>
+        document.getElementById('Przycisk_oblicz').addEventListener("click", function () {
+            var Szerokosc = parseFloat(document.getElementById('Szerokosc').value);
+            var Dlugosc = parseFloat(document.getElementById('Dlugosc').value);
+            var Panele_laminowane = document.getElementById('Panele_laminowane').checked;
+            var Panele_winylowe = document.getElementById('Panele_winylowe').checked;
+            var Deska_podłogowa = document.getElementById('Deska_podłogowa').checked;
+            var Wynik = document.getElementById('Wynik');
+
+            if (!isNaN(Szerokosc) && !isNaN(Dlugosc) && (Panele_laminowane || Panele_winylowe || Deska_podłogowa))
+            {
+                var Pole_powierzchni = Szerokosc * Dlugosc;
+                var Koszt_montazu = 0;
+                
+                if (Panele_laminowane)
+                {
+                    Koszt_montazu = Pole_powierzchni * 12;
+                }
+                else if (Panele_winylowe)
+                {
+                    Koszt_montazu = Pole_powierzchni * 14;
+                }
+                else
+                {
+                    Koszt_montazu = Pole_powierzchni * 18;
+                }
+
+                Wynik.innerHTML = "Pole powierzchni pomieszczenia: " + Pole_powierzchni + ", koszt montażu " + Koszt_montazu;
+            }
+            else
+            {
+                Wynik.innerHTML = "Wprowadź poprawne dane.";
+            }
+        });
+    </script>
+</body>
+</html>
