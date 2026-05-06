@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sklep - rejestracja</title>
+    <link rel="stylesheet" href="../CSS/styl.css">
+</head>
+<body>
+    <aside>
+        <img src="../Grafiki/obraz.png" alt="promocje">
+        <h2>Sprawdź promocje</h2>
+        <table>
+            <tr>
+                <th>co?</th>
+                <th>ile taniej?</th>
+            </tr>
+            <tr>
+                <td>ubrania</td>
+                <td>15%</td>
+            </tr>
+            <tr>
+                <td>buty</td>
+                <td>25%</td>
+            </tr>
+        </table>
+    </aside>
+    <header>
+        <h1>Zarejestruj się w sklepie</h1>
+    </header>
+    <main>
+        <input type="button" value="Klient" id="Przycisk_klient" onclick="Przycisk_klienta()">
+        <input type="button" value="Adres" id="Przycisk_adres" onclick="Przycisk_adresu()">
+        <input type="button" value="Kontakt" id="Przycisk_kontakt" onclick="Przycisk_kontaktu()">
+
+        <section id="Blok_pierwszy" class="Blok">
+            <p>Imię</p>
+            <input type="text" name="Imie" id="Imie" placeholder="Wpisz dane...">
+            <p>Nazwisko</p>
+            <input type="text" name="Nazwisko" id="Nazwisko">
+            <p>Data urodzenia</p>
+            <input type="date" name="Data_urodzenia" id="Data_urodzenia">
+        </section>
+        <section id="Blok_drugi" class="Blok">
+            <p>Ulica</p>
+            <input type="text" name="Ulica" id="Ulica">
+            <p>Numer</p>
+            <input type="number" name="Numer" id="Numer">
+            <p>Miasto</p>
+            <input type="text" name="Miasto" id="Miasto">
+        </section>
+        <section id="Blok_trzeci" class="Blok">
+            <p>Numer komórkowy</p>
+            <input type="tel" name="Numer_komorkowy" id="Numer_komorkowy">
+            <br>
+            <input type="checkbox" name="Akceptuje_RODO" id="Akceptuje_RODO"> <label for="Akceptuje_RODO">Akceptuję RODO</label>
+            <br>
+            <input type="button" value="Zatwierdź dane" onclick="Zatwierdz()">
+        </section>
+    </main>
+    <section id="Blok_paska_postepu">
+        <section id="Blok_paska_postepu_pusty"></section>
+    </section>
+    <footer>
+        <h4>Rejestrację do sklepu wykonał: Bartek Piechnik 3Tpa</h4>
+    </footer>
+    <script>
+        var Przycisk_klient = document.getElementById('Przycisk_klient');
+        var Przycisk_adres = document.getElementById('Przycisk_adres');
+        var Przycisk_kontakt = document.getElementById('Przycisk_kontakt');
+
+        var Blok_pierwszy = document.getElementById('Blok_pierwszy');
+        var Blok_drugi = document.getElementById('Blok_drugi');
+        var Blok_trzeci = document.getElementById('Blok_trzeci');
+
+        var Wartosc_paska_postepu = 0;
+
+        function Aktywuj_blok(Przycisk)
+        {
+            Blok_pierwszy.style.display = "none";
+            Blok_drugi.style.display = "none";
+            Blok_trzeci.style.display = "none";
+
+            Przycisk.style.display = "block";
+        }
+        function Przycisk_klienta()
+        {
+            Aktywuj_blok(Blok_pierwszy);
+        }
+        function Przycisk_adresu()
+        {
+            Aktywuj_blok(Blok_drugi);
+        }
+        function Przycisk_kontaktu()
+        {
+            Aktywuj_blok(Blok_trzeci);
+        }
+
+        function Zmien_wartosc_paska_postepu()
+        {
+            if (Wartosc_paska_postepu < 100)
+            {
+                Wartosc_paska_postepu = Wartosc_paska_postepu + 12;
+                if (Wartosc_paska_postepu > 100)
+                {
+                    Wartosc_paska_postepu = 100;
+                }
+                document.querySelector('#Blok_paska_postepu_pusty').style.width = Wartosc_paska_postepu + "%";
+            }
+        }
+
+        document.querySelectorAll('input[type="text"], input[type="date"], input[type="number"], input[type="tel"], input[type="checkbox"]').forEach(function (input) 
+        {
+            input.addEventListener("blur", Zmien_wartosc_paska_postepu)
+        });
+
+        function Zatwierdz()
+        {
+            var Imie = document.getElementById('Imie').value;
+            var Nazwisko = document.getElementById('Nazwisko').value;
+            var Data_urodzenia = document.getElementById('Data_urodzenia').value;
+            var Ulica = document.getElementById('Ulica').value;
+            var Numer = document.getElementById('Numer').value;
+            var Miasto = document.getElementById('Miasto').value;
+            var Numer_komorkowy = document.getElementById('Numer_komorkowy').value;
+            var Akceptuje_RODO = document.getElementById('Akceptuje_RODO').checked ? "Akceptuje RODO" : "Nieakceptuje RODO";
+
+            console.log(Imie + ", " + Nazwisko + ", " + Data_urodzenia + ", " + Ulica + ", " + Numer + ", " + Miasto + ", " + Numer_komorkowy + ", " + Akceptuje_RODO + ", ");
+        }
+    </script>
+</body>
+</html>
