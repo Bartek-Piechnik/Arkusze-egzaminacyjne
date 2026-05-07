@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabryka cukierków</title>
+    <link rel="stylesheet" href="../CSS/styl10.css">
+</head>
+<body>
+    <section id="Gorny_lewy">
+        <a href="zamowienie.html" id="Odnosnik_zamowienie">Zamów cukierki</a>
+    </section>
+    <section id="Gorny_prawy">
+        <a href="index.html"><img src="../Grafiki/logotyp.png" alt="Nasze logo"></a>
+    </section>
+    <header>
+        <h1>Strefa zamówień</h1>
+    </header>
+    <main>
+        <section id="Lewy">
+            Numer kształtu: <br>
+            <input type="number" name="" id="Numer_ksztaltu"><br>
+            skomponuj swój kolor, podaj RGB: <br> 
+            R:<input type="number" name="R" id="R">
+            G:<input type="number" name="G" id="G">
+            B:<input type="number" name="B" id="B"><br>
+            <input type="submit" value="Zamówienie" id="Przycisk_zamowienie">
+            <p id="Twoje_zamowienie">Twoje zamówienie</p>
+            <input type="button" value="Kolor" id="Przycisk_kolor">
+        </section>
+        <section id="Prawy">
+            <h2>Nasza oferta</h2>
+            <table>
+                <tr>
+                    <td>Kształty</td>
+                    <td rowspan="2">Możesz zamówić <br> dowolny kolor cukierka</td>
+                </tr>
+                <tr>
+                    <td>
+                        <ol>
+                            <li>cytryna</li>
+                            <li>liść</li>
+                            <li>banan</li>
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <footer>Autor strony: <b>Bartek Piechnik 3Tpa</b></footer>
+    <script>
+        var Przycisk_zamowienie = document.getElementById('Przycisk_zamowienie');
+
+        Przycisk_zamowienie.addEventListener("click", function () {
+            var Numer_ksztaltu = parseInt(document.getElementById('Numer_ksztaltu').value);
+            var Twoje_zamowienie = document.getElementById('Twoje_zamowienie');
+            var R = parseInt(document.getElementById('R').value);
+            var G = parseInt(document.getElementById('G').value);
+            var B = parseInt(document.getElementById('B').value);
+            var Przycisk_kolor = document.getElementById('Przycisk_kolor');
+
+            if (Numer_ksztaltu == 1)
+            {
+                Twoje_zamowienie.innerHTML = "Twoje zamówienie to cukierek cytryna";
+            }
+            else if (Numer_ksztaltu == 2)
+            {
+                Twoje_zamowienie.innerHTML = "Twoje zamówienie to cukierek liść";
+            }
+            else if (Numer_ksztaltu == 3)
+            {
+                Twoje_zamowienie.innerHTML = "Twoje zamówienie to cukierek banan";
+            }
+            else
+            {
+                Twoje_zamowienie.innerHTML = "Twoje zamówienie to cukierek inny";
+            }
+            Przycisk_kolor.style.backgroundColor = "rgb(" + R + "," + G + "," + B + ")";
+        });
+    </script>
+</body>
+</html>
