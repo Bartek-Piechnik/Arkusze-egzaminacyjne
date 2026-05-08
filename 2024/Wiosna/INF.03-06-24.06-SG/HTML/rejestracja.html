@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejestracja</title>
+    <link rel="stylesheet" href="../CSS/styl.css">
+</head>
+<body>
+    <header>
+        <h1>Formularz rejestracyjny konferencji <i>Nasze Kwiaty</i></h1>
+    </header>
+    <main>
+        <form action="">
+            <section id="Blok_1" class="Blok_formularza">
+                <h2>Dane osobowe</h2>
+                <input type="text" name="Imie" id="Imie" placeholder="Wpisz imię..." required>
+                <input type="text" name="Nazwisko" id="Nazwisko" placeholder="Wpisz nazwisko..." required>
+                <input type="button" value="Następna karta" id="Przycisk_z_bloku_1">
+            </section>
+            <section id="Blok_2" class="Blok_formularza">
+                <h2>Dane kontaktowe</h2>
+                <input type="email" name="Email" id="Email" placeholder="Twój e-mail...">
+                <input type="tel" name="Numer_telefonu" id="Numer_telefonu" placeholder="Twój numer telefonu...">
+                <input type="button" value="Następna karta" id="Przycisk_z_bloku_2">
+            </section>
+            <section id="Blok_3" class="Blok_formularza">
+                <h2>Hasło do logowania</h2>
+                <input type="password" name="Podaj_haslo" id="Podaj_haslo" placeholder="Podaj hasło">
+                <input type="password" name="Powtorz_haslo" id="Powtorz_haslo" placeholder="Powtórz hasło">
+                <input type="button" value="Zatwierdź" id="Przycisk_z_bloku_3">
+            </section>
+        </form>
+    </main>
+    <footer>
+        <section id="Blok_stopki">
+            <video src="../Grafiki/motyl.mp4" controls>Przeglądarka nie obsługuje tego formatu</video>
+        </section>
+        <section id="Blok_stopki">
+            <h3>Plan konferencji</h3>
+            <table>
+                <tr>
+                    <td>9:00 - 12:00</td>
+                    <td>Pielęgnacja roślin</td>
+                </tr>
+                <tr>
+                    <td>13:00 - 15:00</td>
+                    <td>Targi kwiatowe</td>
+                </tr>
+            </table>
+        </section>
+        <section id="Blok_stopki">
+            <p><a href="https://www.kwiaty.pl/">Internetowa kwiaciarnia</a></p>
+        </section>
+        <section id="Blok_stopki">
+            <p>Formularz wykonał: Bartek Piechnik 3Tpa</p>
+        </section>
+    </footer>
+    <script>
+        var Przycisk_z_bloku_1 = document.getElementById('Przycisk_z_bloku_1');
+        var Przycisk_z_bloku_2 = document.getElementById('Przycisk_z_bloku_2');
+        var Przycisk_z_bloku_3 = document.getElementById('Przycisk_z_bloku_3');
+
+        var Blok_1 = document.getElementById('Blok_1');
+        var Blok_2 = document.getElementById('Blok_2');
+        var Blok_3 = document.getElementById('Blok_3');
+
+        Przycisk_z_bloku_1.addEventListener("click", function() {
+            Blok_1.style.display = "none";
+            Blok_2.style.display = "block";
+        });
+
+        Przycisk_z_bloku_2.addEventListener("click", function() {
+            Blok_2.style.display = "none";
+            Blok_3.style.display = "block";
+        });
+
+        Przycisk_z_bloku_3.addEventListener("click", function() {
+            var Podaj_haslo = document.getElementById('Podaj_haslo').value;
+            var Powtorz_haslo = document.getElementById('Powtorz_haslo').value;
+
+            if (Podaj_haslo != Powtorz_haslo)
+            {
+                alert("Podane hasła różnią się");
+            }
+            else
+            {
+                var Imie = document.getElementById('Imie').value;
+                var Nazwisko = document.getElementById('Nazwisko').value;
+
+                console.log("Witaj " + Imie + " " + Nazwisko);
+            }
+        });
+    </script>
+</body>
+</html>
