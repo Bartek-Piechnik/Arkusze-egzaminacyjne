@@ -1,0 +1,4 @@
+1. SELECT MIN(n.priorytet) FROM notatki n JOIN osoby o ON o.id = n.Osoby_id WHERE o.id = 3;
+2. SELECT nazwa, priorytet FROM notatki WHERE nazwa LIKE "%na%";
+3. SELECT o.imie, n.nazwa FROM osoby o JOIN notatki n ON o.id = n.Osoby_id WHERE priorytet = 5;
+4. SELECT o.imie, COUNT(n.id) FROM notatki n JOIN osoby o ON n.Osoby_id = o.id GROUP BY o.id;

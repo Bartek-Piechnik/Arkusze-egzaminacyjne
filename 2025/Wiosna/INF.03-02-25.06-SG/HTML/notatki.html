@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planer zadań</title>
+    <link rel="stylesheet" href="../CSS/styl.css">
+</head>
+<body>
+    <aside>
+        <img src="../Grafiki/obraz.jpg" alt="notatki">
+    </aside>
+    <header>
+        <h2>Moje zadania</h2>
+    </header>
+    <nav>
+        <input type="text" name="Tresc_zadania" id="Tresc_zadania" placeholder="Dodaj zadanie...">
+        <input type="submit" value="Dodaj" id="Przycisk_dodaj" onclick="Dodaj_zadanie()">
+    </nav>
+    <main>
+        <ul id="Lista">
+            <li>Wyprowadzić psa <input type="button" value="Wykonane" onclick="Przekresl_wykonane_zadanie(this)"></li>
+            <li>Gimnastyka <input type="button" value="Wykonane" onclick="Przekresl_wykonane_zadanie(this)"></li>
+            <li>Zakupy <input type="button" value="Wykonane" onclick="Przekresl_wykonane_zadanie(this)"></li>
+            <li>Spacer z kumplem <input type="button" value="Wykonane" onclick="Przekresl_wykonane_zadanie(this)"></li>
+            <li>Odrabianie lekcji z młodszą siostrą <input type="button" value="Wykonane" onclick="Przekresl_wykonane_zadanie(this)"></li>
+            <li>Projekt na geografię <input type="button" value="Wykonane" onclick="Przekresl_wykonane_zadanie(this)"></li>
+        </ul>
+    </main>
+    <footer>
+        <h3>Notatki: Bartek Piechnik 3Tpa</h3>
+    </footer>
+    <script>
+         function Przekresl_wykonane_zadanie(przycisk)
+         {
+            var Element_listy = przycisk.parentElement;
+            Element_listy.style.textDecoration = "line-through";
+         }
+         
+         function Dodaj_zadanie()
+         {
+            var Tresc_zadania = document.getElementById('Tresc_zadania').value;
+            var Lista = document.getElementById('Lista');
+
+            var Nowy_element_listy = document.createElement("li");
+            Nowy_element_listy.innerHTML = Tresc_zadania + "<input type='button' value='Wykonane' onclick='Przekresl_wykonane_zadanie(this)'>";
+            Lista.appendChild(Nowy_element_listy);
+         }
+    </script>
+</body>
+</html>
