@@ -1,0 +1,4 @@
+1. SELECT COUNT(id) FROM klienci;
+2. SELECT k.Nazwisko, k.Imie, z.id, z.kod_koloru, z.pojemnosc, z.data_odbioru FROM klienci k JOIN zamowienia z ON z.id_klienta = k.Id ORDER BY z.data_odbioru ASC;
+3. SELECT k.Nazwisko, k.Imie, z.id, z.kod_koloru, z.pojemnosc, z.data_odbioru FROM klienci k JOIN zamowienia z ON z.id_klienta = k.Id WHERE z.data_odbioru BETWEEN "2021-11-05" AND "2021-11-07" ORDER BY z.data_odbioru ASC;
+4. SELECT Imie, Nazwisko FROM klienci WHERE Plec = "k";
