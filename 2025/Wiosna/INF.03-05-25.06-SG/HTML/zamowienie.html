@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotografia</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <header>
+        <h1>Fotografia artystyczna</h1>
+    </header>
+    <section id="Obrazy">
+        <img src="../Grafiki/1.jpg" alt="obrazy do sprzedaży" title="1.jpg">
+        <img src="../Grafiki/2.jpg" alt="obrazy do sprzedaży" title="2.jpg">
+        <img src="../Grafiki/3.jpg" alt="obrazy do sprzedaży" title="3.jpg">
+        <img src="../Grafiki/4.jpg" alt="obrazy do sprzedaży" title="4.jpg">
+        <img src="../Grafiki/5.jpg" alt="obrazy do sprzedaży" title="5.jpg">
+        <img src="../Grafiki/6.jpg" alt="obrazy do sprzedaży" title="6.jpg">
+        <img src="../Grafiki/7.jpg" alt="obrazy do sprzedaży" title="7.jpg">
+        <img src="../Grafiki/8.jpg" alt="obrazy do sprzedaży" title="8.jpg">
+        <img src="../Grafiki/9.jpg" alt="obrazy do sprzedaży" title="9.jpg">
+        <img src="../Grafiki/10.jpg" alt="obrazy do sprzedaży" title="10.jpg">
+    </section>
+    <main>
+        <section id="Lewy">
+            <h3>Zamówienie</h3>
+            <label for="Wybierz_obraz">Wybierz obraz</label>
+            <input type="file" name="Wybierz_obraz" id="Wybierz_obraz" accept="image/jpeg"><br>
+            <label for="Liczba_kopii">Liczba kopii</label>
+            <input type="number" name="Liczba_kopii" id="Liczba_kopii"><br>
+            <input type="radio" name="Rodzaj_papieru" id="Papier_blyszczacy" value="Papier błyszczący" checked>Papier błyszczący<br>
+            <input type="radio" name="Rodzaj_papieru" id="Papier_matowy" value="Papier matowy">Papier matowy<br>
+            <input type="button" value="Dodaj do koszyka" id="Przycisk_dodaj_do_koszyka">
+        </section>
+        <nav>
+            <ul>
+                <li><a href="regulamin.html">Regulamin</a></li>
+                <li><a href="uslugi.html">Usługi</a></li>
+                <li><a href="https://pixabay.com">Zdjęcia</a></li>
+            </ul>
+        </nav>
+        <section id="Prawy">
+            <h3>Koszyk</h3>
+            <section id="Wynik"></section>
+        </section>
+    </main>
+    <footer>
+        <p>Autor strony: <i>Bartek Piechnik 3Tpa</i></p>
+    </footer>
+    <script>
+        var Przycisk_dodaj_do_koszyka = document.getElementById('Przycisk_dodaj_do_koszyka');
+
+        Przycisk_dodaj_do_koszyka.addEventListener("click", function () {
+            var Wybierz_obraz = document.getElementById('Wybierz_obraz');
+            var Liczba_kopii = parseInt(document.getElementById('Liczba_kopii').value);
+            var Rodzaj_papieru = document.querySelector('input[name="Rodzaj_papieru"]:checked').value;
+            var Wynik = document.getElementById('Wynik');
+
+            var Cena = 0;
+            if (!isNaN(Liczba_kopii) && Liczba_kopii > 0)
+            {
+                if (Rodzaj_papieru === "Papier błyszczący")
+                {
+                    Cena = Liczba_kopii * 1.5;
+                }
+                else
+                {
+                    Cena = Liczba_kopii * 2;
+                }
+            }
+
+            var Nazwa_pliku = "";
+            if (Wybierz_obraz.files.length > 0)
+            {
+                Nazwa_pliku = Wybierz_obraz.files[0].name;
+            }
+
+            var Obraz = document.createElement("img");
+            Obraz.src = "../Grafiki/" + Nazwa_pliku;
+
+            var Paragraf_z_liczba_kopii = document.createElement("p");
+            Paragraf_z_liczba_kopii.innerText = "Liczba kopii: " + Liczba_kopii;
+
+            var Paragraf_z_trescia = document.createElement("p");
+            Paragraf_z_trescia.innerText = "Cena: " + Cena;
+
+            Wynik.appendChild(Obraz);
+            Wynik.appendChild(Paragraf_z_liczba_kopii);
+            Wynik.appendChild(Paragraf_z_trescia);
+        });
+    </script>
+</body>
+</html>
