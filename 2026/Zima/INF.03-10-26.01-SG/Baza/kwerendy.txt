@@ -1,0 +1,4 @@
+1. SELECT nazwa, trudnosc, kalorie FROM potrawy WHERE idPotrawy = 7;
+2. SELECT p.nazwa, r.rodzaj FROM potrawy p JOIN rodzaje r ON p.idRodzaje = r.idRodzaje WHERE p.idPotrawy = 7;
+3. SELECT p.nazwa, a.alergen FROM potrawy p JOIN lista_alergenow la ON la.idPotrawy = p.idPotrawy JOIN alergeny a ON a.idAlergeny = la.idAlergeny WHERE la.idPotrawy = 7;
+4. SELECT przepis, plik FROM potrawy WHERE idPotrawy = 7;
