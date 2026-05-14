@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pola figur</title>
+    <link rel="stylesheet" href="../CSS/styl.css">
+</head>
+<body>
+    <header>
+        <h2>Pola figur płaskich</h2>
+    </header>
+    <main>
+        <nav>
+            <h3>MENU</h3>
+            <ul>
+                <li><a href="index.html">Prostokąt i trójkąt</a></li>
+                <li><a href="kolo.html">Okrąg i koło</a></li>
+            </ul>
+        </nav>
+        <section>
+            <img src="../Grafiki/1d.bmp" alt="Figura" id="Duzy_obraz">
+            <img src="../Grafiki/1m.bmp" alt="Wybierz trójkąt" class="Wybierz_ksztalt" id="Obraz_1m">
+            <img src="../Grafiki/2m.bmp" alt="Wybierz prostokąt" class="Wybierz_ksztalt" id="Obraz_2m">
+        </section>
+        <aside>
+            <h3>Pole prostokąta / pole trójkąta</h3>
+            <label for="Bok_prostokata_podstawa_trojkata">Bok prostokąta / podstawa trójkąta:</label>
+            <input type="number" name="Bok_prostokata_podstawa_trojkata" id="Bok_prostokata_podstawa_trojkata">
+            <label for="Drugi_bok_prostokata_wysokosc_trojkata">Drugi bok prostokąta / wysokość trójkąta:</label>
+            <input type="number" name="Drugi_bok_prostokata_wysokosc_trojkata" id="Drugi_bok_prostokata_wysokosc_trojkata">
+            <input type="submit" value="Oblicz" id="Przycisk_oblicz">
+            <p id="Wynik"></p>
+        </aside>
+    </main>
+    <footer>
+        <p>Autor: Bartek Piechnik 3Tpa</p>
+    </footer>
+    <script>
+        var Duzy_obraz = document.getElementById('Duzy_obraz');
+        var Obraz_1m = document.getElementById('Obraz_1m');
+        var Obraz_2m = document.getElementById('Obraz_2m');
+        var Przycisk_oblicz = document.getElementById('Przycisk_oblicz');
+        var Wynik = document.getElementById('Wynik');
+
+        Obraz_1m.addEventListener("click", function() {
+            Duzy_obraz.src = "../Grafiki/1d.bmp";
+        });
+
+        Obraz_2m.addEventListener("click", function() {
+            Duzy_obraz.src = "../Grafiki/2d.bmp";
+        });
+
+        Przycisk_oblicz.addEventListener("click", function() {
+            var Bok_prostokata_podstawa_trojkata = parseFloat(document.getElementById('Bok_prostokata_podstawa_trojkata').value);
+            var Drugi_bok_prostokata_wysokosc_trojkata = parseFloat(document.getElementById('Drugi_bok_prostokata_wysokosc_trojkata').value);
+
+            if (Duzy_obraz.src.includes("2d.bmp"))
+            {
+                Wynik.innerHTML = Bok_prostokata_podstawa_trojkata * Drugi_bok_prostokata_wysokosc_trojkata;
+            }
+            else if (Duzy_obraz.src.includes("1d.bmp"))
+            {
+                Wynik.innerHTML = (Bok_prostokata_podstawa_trojkata * Drugi_bok_prostokata_wysokosc_trojkata) / 2;
+            }
+            else
+            {
+                Wynik.innerHTML = (Bok_prostokata_podstawa_trojkata * Drugi_bok_prostokata_wysokosc_trojkata) / 2;
+            }
+        });
+    </script>
+</body>
+</html>
