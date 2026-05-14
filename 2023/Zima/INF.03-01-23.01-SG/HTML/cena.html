@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>malarz</title>
+    <link rel="stylesheet" href="../CSS/styl_1.css">
+</head>
+<body>
+    <header>
+        <h1>Malowanie pokoi i biur</h1>
+    </header>
+    <section id="Blok_lewy">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="mieszamy.html">Mieszamy</a></li>
+            <li><a href="cena.html">Wyceniamy</a></li>
+        </ul>
+    </section>
+    <section id="Blok_srodkowy">
+        <h2>Zapotrzebowanie na farbę</h2>
+        <label for="Powierzchnia_malowania">Powierzchnia malowania (m<sup>2</sup>):</label>
+        <input type="number" name="Powierzchnia_malowania" id="Powierzchnia_malowania">
+        <input type="submit" value="Policz" id="Przycisk_policz">
+        <p id="Wynik"></p>
+    </section>
+    <section id="Blok_prawy">
+        <img src="../Grafiki/obraz.png" alt="Próbki farb">
+    </section>
+    <footer>
+        <h3>MALARZ</h3>
+        <p>Stronę opracował: Bartek Piechnik 3Tpa</p>
+    </footer>
+    <script>
+        var Przycisk_policz = document.getElementById('Przycisk_policz');
+        var Wynik = document.getElementById('Wynik');
+
+        Przycisk_policz.addEventListener("click", function() {
+            var Powierzchnia_malowania = parseFloat(document.getElementById('Powierzchnia_malowania').value);
+            var Minimalna_liczba_puszek = Math.ceil(Powierzchnia_malowania / 4);
+
+            Wynik.innerHTML = "Liczba potrzebnych puszek: " + Minimalna_liczba_puszek;
+        });
+    </script>
+</body>
+</html>
