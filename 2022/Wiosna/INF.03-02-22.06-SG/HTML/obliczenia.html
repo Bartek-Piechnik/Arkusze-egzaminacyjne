@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacja paliw</title>
+    <link rel="stylesheet" href="../CSS/styl2.css">
+</head>
+<body>
+    <header>
+        <h1>Całodobowa stacja paliw</h1>
+    </header>
+    <nav>
+        <a href="stacja.html"><img src="../Grafiki/home.png" alt=""></a>
+        <a href="obliczenia.html"><img src="../Grafiki/znak.png" alt=""></a>
+        <a href="../Baza/kwerendy.txt">Pobierz dokumenty</a>
+    </nav>
+    <section id="Lewy">
+        <h2>Orientacyjny koszt paliwa</h2>
+        <label for="Rodzaj_paliwa">Rodzaj paliwa (1-benzyna, 2-olej napędowy): </label><br>
+        <input type="number" name="Rodzaj_paliwa" id="Rodzaj_paliwa"><br>
+        <label for="Ile_litrow">Ile litrów?</label><br>
+        <input type="number" name="Ile_litrow" id="Ile_litrow"><br>
+        <input type="submit" value="OBLICZ" id="Przycisk_oblicz"><br>
+        <p id="Wynik"></p>
+    </section>
+    <section id="Prawy">
+        <img src="../Grafiki/samochod.png" alt="samochód" id="Obraz_z_samochodem">
+    </section>
+    <footer>
+        <p>Stronę opracował: Bartek Piechnik 3Tpa</p>
+    </footer>
+    <script>
+        var Przycisk_oblicz = document.getElementById('Przycisk_oblicz');
+
+        Przycisk_oblicz.addEventListener("click", function() {
+            var Rodzaj_paliwa = parseInt(document.getElementById('Rodzaj_paliwa').value);
+            var Ile_litrow = parseFloat(document.getElementById('Ile_litrow').value);
+            var Wynik = document.getElementById('Wynik');
+            var Koszt = 0;
+
+            if (Rodzaj_paliwa == 1)
+            {
+                Koszt = Ile_litrow * 4;
+            }
+            else if (Rodzaj_paliwa == 2)
+            {
+                Koszt = Ile_litrow * 3.5;
+            }
+            else
+            {
+                Koszt = Ile_litrow * 0;
+            }
+            Wynik.innerHTML = "koszt paliwa: " + Koszt + " zł";
+        });
+    </script>
+</body>
+</html>
