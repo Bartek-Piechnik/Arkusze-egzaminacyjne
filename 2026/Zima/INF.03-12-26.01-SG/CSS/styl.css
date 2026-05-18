@@ -1,0 +1,46 @@
+@font-face {
+	font-family: "Dancing Script";
+	src: url("../Grafiki/czcionka/DancingScript-VariableFont_wght.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+body {
+    font-family: "Dancing Script", serif;
+    font-size: 120%;
+    text-align: center;
+}
+#Blok_naglowkowy_1, aside {
+    background-color: rosybrown;
+    width: 30%;
+    float: left;
+}
+aside {
+    text-align: left;
+    height: 350px;
+    clear: both;
+}
+#Blok_naglowkowy_2 {
+    background-color: rosybrown;
+    width: 70%;
+    height: 100px;
+    float: left;
+}
+#Blok_sekcji {
+    width: 70%;
+    height: 550px;
+    overflow: scroll;
+}
+label {
+    line-height: 50px;
+}
+.miniatury {
+    width: 150px;
+}
+.miniatury:hover {
+    background-color: bisque;
+    width: 200px;
+    transition: width 1s;
+}
+footer {
+    clear: both;
+}

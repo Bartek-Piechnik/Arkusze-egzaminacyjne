@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatuaże</title>
+    <link rel="stylesheet" href="../CSS/styl.css">
+</head>
+<body>
+    <header>
+        <section id="Blok_naglowkowy_1">
+            <img src="../Grafiki/logo.png" alt="salon">
+        </section>
+        <section id="Blok_naglowkowy_2">
+            <h1>Studio Tatuażu</h1>
+        </section>
+    </header>
+    <aside>
+        <h3>Dodaj wzór</h3>
+        <label for="Wzor">Wzór:</label><br>
+        <input type="file" name="Wzor" id="Wzor" accept="image/png"><br>
+        <label for="Kolor">Kolor:</label><br>
+        <select name="Kolor" id="Kolor">
+            <option value="Czarny">Czarny</option>
+            <option value="Czerwony">Czerwony</option>
+            <option value="Zielony">Zielony</option>
+            <option value="Niebieski">Niebieski</option>
+        </select><br>
+        <label for="Cena">Cena:</label><br>
+        <input type="number" name="Cena" id="Cena"><br>
+        <input type="submit" value="Dodaj Wzór" id="Przycisk_dodaj_wzor">
+    </aside>
+    <section id="Blok_sekcji">
+        <h2>Galeria</h2>
+        <img src="../Grafiki/smok.png" alt="smok.png" class="miniatury">
+        <img src="../Grafiki/koliber.png" alt="koliber.png" class="miniatury">
+    </section>
+    <footer>
+        <p>Autor strony: Bartek Piechnik 3Tpa</p>
+    </footer>
+    <script>
+        var Przycisk_dodaj_wzor = document.getElementById('Przycisk_dodaj_wzor');
+
+        Przycisk_dodaj_wzor.addEventListener("click", function () {
+            var Wzor = document.getElementById('Wzor');
+            var Kolor = document.getElementById('Kolor').value;
+            var Cena = document.getElementById('Cena').value;
+            var Blok_sekcji = document.getElementById('Blok_sekcji');
+
+            var Nazwa_pliku = Wzor.files[0].name;
+
+            alert("Wzór: " + Nazwa_pliku + ", kolor " + Kolor + " w cenie " + Cena + " zł");
+
+            var Obraz = document.createElement("img");
+            Obraz.src = URL.createObjectURL(Wzor.files[0]);
+            Obraz.alt = Nazwa_pliku;
+            Obraz.className = "miniatury";
+            Blok_sekcji.appendChild(Obraz);
+        });
+    </script>
+</body>
+</html>
