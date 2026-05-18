@@ -1,0 +1,4 @@
+1. SELECT imie, kolor, cena FROM klienci WHERE topKlient = 1;
+2. SELECT imie, cena FROM klienci WHERE termin LIKE "%2024-05-23%";
+3. SELECT k.imie, k.kolor, ksz.ksztalt FROM klienci k JOIN ksztalty ksz ON k.ksztalty_id = ksz.id WHERE ksz.ksztalt = "migdał";
+4. ALTER TABLE wzory ADD COLUMN doplata INT;
