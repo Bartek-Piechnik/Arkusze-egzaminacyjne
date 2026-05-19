@@ -1,0 +1,4 @@
+1. SELECT imie, nazwisko, miasto FROM klient WHERE miasto = "Legionowo" OR miasto = "Warszawa";
+2. SELECT nazwa FROM produkty WHERE cena_brutto > 500;
+3. SELECT k.nazwa_kategorii, AVG(p.cena_brutto) FROM produkty p JOIN kategorie k on p.id_kat = k.id_kat GROUP BY k.nazwa_kategorii;
+4. SELECT z.id_zam, z.ilosc, z.wartosc, p.nazwa FROM zamowienia z JOIN produkty p ON z.id_prod = p.id_prod WHERE z.id_klient = 2;
