@@ -1,0 +1,45 @@
+* {
+    font-family: Georgia;
+}
+#Lewy {
+    background-color: maroon;
+    color: white;
+    height: 600px;
+    width: 30%;
+    float: left;
+}
+#Prawy {
+    background-color: maroon;
+    color: white;
+    height: 600px;
+    width: 70%;
+    overflow: scroll;
+    float: left;
+}
+footer {
+    background-color: dimgray;
+    color: white;
+    clear: both;
+}
+#Prawy img, ul {
+    float: left;
+}
+#Prawy p { 
+    clear: both;
+}
+p {
+    padding: 10px;
+}
+img {
+    padding: 10px;
+    border: 1px solid white;
+}
+#Przycisk_1 {
+    background-color: indigo;
+}
+#Przycisk_2 {
+    background-color: steelblue;
+}
+#Przycisk_3 {
+    background-color: olive;
+}

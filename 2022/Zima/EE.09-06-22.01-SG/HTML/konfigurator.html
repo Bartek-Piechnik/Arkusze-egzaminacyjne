@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style w JavaScript</title>
+    <link rel="stylesheet" href="../CSS/styl6.css">
+</head>
+<body>
+    <section id="Lewy">
+        <h1>Konfigurator stylu</h1>
+        <p>Podaj kolor tła</p>
+        <input type="button" value="Indigo" id="Przycisk_1">
+        <input type="button" value="SteelBlue" id="Przycisk_2">
+        <input type="button" value="Olive" id="Przycisk_3">
+        <p>Podaj kolor czcionki</p>
+        <select name="Kolor_czcionki" id="Kolor_czcionki">
+            <option value="White">White</option>
+            <option value="Tan">Tan</option>
+            <option value="Bisque">Bisque</option>
+            <option value="Plum">Plum</option>
+        </select>
+        <p>Podaj rozmiar czcionki w procentach, np. 200%</p>
+        <input type="number" name="Rozmiar_czcionki" id="Rozmiar_czcionki" value="100%">
+        <p>Czy rysunek ma mieć ramkę?</p>
+        <input type="checkbox" name="Czy_rysunek_ma_miec_ramke" id="Czy_rysunek_ma_miec_ramke" checked> Rysuj ramkę?
+        <p>Jaki jest typ punktora listy?</p>
+        <input type="radio" name="Typ_punktora_listy" id="Typ_punktora_listy" value="disc" checked> dysk
+        <input type="radio" name="Typ_punktora_listy" id="Typ_punktora_listy" value="square"> kwadrat
+        <input type="radio" name="Typ_punktora_listy" id="Typ_punktora_listy" value="circle"> okrąg
+    </section>
+    <section id="Prawy">
+        <img src="../Grafiki/gibraltar.jpg" alt="półwysep Gibraltar" id="Obraz">
+        <ul>
+            <li>element 1</li>
+            <li>element 2</li>
+            <li>element 3</li>
+        </ul>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+    <footer>Autor: Bartek Piechnik 3Tpa</footer>
+    <script>
+        var Przycisk_1 = document.getElementById('Przycisk_1');
+        var Przycisk_2 = document.getElementById('Przycisk_2');
+        var Przycisk_3 = document.getElementById('Przycisk_3');
+        var Prawy = document.getElementById('Prawy');
+        var Kolor_czcionki = document.getElementById('Kolor_czcionki');
+        var Rozmiar_czcionki = document.getElementById('Rozmiar_czcionki');
+        var Czy_rysunek_ma_miec_ramke = document.getElementById('Czy_rysunek_ma_miec_ramke');
+        var Obraz = document.getElementById('Obraz');
+        var Typ_punktora_listy = document.getElementsByName('Typ_punktora_listy');
+        var ul = document.querySelector("ul");
+
+        Przycisk_1.addEventListener("click", function () {
+            Prawy.style.backgroundColor = "Indigo";
+        });
+        Przycisk_2.addEventListener("click", function () {
+            Prawy.style.backgroundColor = "SteelBlue";
+        });
+        Przycisk_3.addEventListener("click", function () {
+            Prawy.style.backgroundColor = "Olive";
+        });
+
+        Kolor_czcionki.addEventListener("change", function () {
+            Prawy.style.color = Kolor_czcionki.value;
+        });
+
+        Rozmiar_czcionki.addEventListener("focusout", function () {
+            Prawy.style.fontSize = Rozmiar_czcionki.value + "%";
+        });
+
+        Czy_rysunek_ma_miec_ramke.addEventListener("change", function () {
+            if (Czy_rysunek_ma_miec_ramke.checked)
+            {
+                Obraz.style.border = "1px solid black"
+            }
+            else
+            {
+                Obraz.style.border = "none";
+            }
+        });
+
+        
+        for (var i = 0; i < Typ_punktora_listy.length; i++) 
+        {
+            Typ_punktora_listy[i].addEventListener("change", function () {
+                ul.style.listStyleType = this.value;
+            });
+        }
+    </script>
+</body>
+</html>
