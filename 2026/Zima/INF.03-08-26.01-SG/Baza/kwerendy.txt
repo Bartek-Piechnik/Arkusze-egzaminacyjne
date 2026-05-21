@@ -1,0 +1,4 @@
+1. SELECT id, nazwa FROM szczyty ORDER BY wysokosc DESC;
+2. SELECT plik, nazwa FROM szczyty LIMIT 10;
+3. SELECT s.plik, s.nazwa, s.wysokosc, s.pasmo, o.opis FROM szczyty s JOIN opis o ON s.id = o.szczyty_id WHERE s.id = 1;
+4. SELECT nazwa, wysokosc, pasmo FROM szczyty WHERE pasmo LIKE "Beskid%";
